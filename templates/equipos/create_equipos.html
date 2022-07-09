@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{%block title%}Insertar Equipo{%endblock%}
+{%block body%}
+{% with messages=get_flashed_messages()%}
+{%if messages%}
+  <div class="alert alert-danger" role="alert">
+    {%for message in messages%}
+      {{message}}
+    {%endfor%}
+  </div>
+{%endif%}
+{%endwith%}
+<br>
+<form method="post" action="/store_equipos" enctype="multipart/form-data">
+  <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
+    <div class="card">
+        <div class="card-header">
+          <h4 class="card-title">Ingresar equipos</h4>
+        </div>
+        <div class="card-body">
+            <p class="card-text">
+                <div class="mb-3">
+                  <label for="txtOrden" class="form-label">No. de Orden:</label>
+                  <input type="text" name="txtOrden" id="txtOrden" class="form-control" 
+                  placeholder="No. de Orden" aria-describedby="helpId">
+                </div>
+
+                <div class="mb-3">
+                  <label for="txtImei" class="form-label">IMEI</label>
+                  <input type="text" name="txtImei" id="txtImei" class="form-control" placeholder="IMEI">                  
+                </div>
+                
+                <div class="mb-3">
+                  <label for="txtMarca" class="form-label">Marca:</label>
+                  <input type="text" name="txtMarca" id="txtMarca" class="form-control" placeholder="Marca"> 
+                </div>
+                
+                <div class="mb-3">
+                  <label for="txtModelo" class="form-label">Modelo:</label>
+                  <input type="text" name="txtModelo" id="txtModelo" class="form-control" placeholder="Modelo"> 
+                </div>
+
+                <div class="mb-3">
+                  <label for="txtTipo" class="form-label">Tipo:</label>
+                  <input type="text" name="txtTipo" id="txtTipo" class="form-control" placeholder="Tipo de Equipo"> 
+                </div>
+
+                <div class="mb-3">
+                  <label for="txtDefectado" class="form-label">Defectado:</label>
+                  <input type="text" name="txtDefectado" id="txtDefectado" class="form-control" placeholder="Defectado"> 
+                </div>
+
+              <div class="mb-3">
+                <input type="submit" value="Agregar" class="btn btn-success">
+                <a href="{{url_for('index')}}" class="btn btn-primary">Regresar</a>
+              </div>
+            </p>
+        </div>
+    </div> 
+</form>
+{% endblock %}

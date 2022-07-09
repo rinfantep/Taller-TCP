@@ -1,0 +1,58 @@
+.btn_ingresar_cliente{
+    margin-left: 20px;
+}
+.btn-login{
+    width: 220px;
+    margin: 10px;
+    margin-top: 20px;
+    background: rgba(0,0,0,0.5);
+    color: aliceblue;
+}
+.btn-login:hover{
+    color: rgba(0,0,0,0.1);
+    color:aliceblue;
+}
+.form-signin{
+    width: 550px;
+    height: auto;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 20px;
+    padding-bottom: 5px;
+    margin: auto;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    background-color: rgba(19, 18, 18, 0.4);
+    border-radius: 10px;
+
+}
+.body-login{
+    background-image: url("../img/login9.webp");
+    background-size: cover;
+}
+.usu{
+    color:white;
+    font-family: sans-serif;
+}
+.body-register{
+    background-image: url("../img/login12.webp");
+    background-size: cover;
+}
+.form-floating{
+    margin-top: 20px;
+}
+.botones-login{
+    margin-top: 10px;
+}
+.body-index{
+    background-image: url("../img/login.webp");
+    background-size: cover;
+}
+.tabla_clientes{
+    padding: 120px;
+    
+}
+.equipo-body{
+    background-image: url("../img/login2.webp");
+    background-size: cover;
+}

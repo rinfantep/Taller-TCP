@@ -1,0 +1,44 @@
+{% extends "base_login.html" %}
+{% block title %}Registrar usuario{% endblock %}
+{% block body %}
+{% with messages=get_flashed_messages()%}
+  {%if messages%}
+    <div class="alert alert-danger" role="alert">
+      {%for message in messages%}
+        {{message}}
+      {%endfor%}
+    </div>
+  {%endif%}
+  {%endwith%}
+
+<body class="text-center body-register"> 
+    <div class="form-signin">
+      <form id="registro-form" action="/registro_usu" method="POST"> 
+        <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
+        <h1 class="h3 mb-3 fw-normal usu">Rellene los campos</h1>
+    
+        <div class="form-floating">
+          <input type="text" class="form-control" id="txtUsuario" placeholder="usuario" name="txtUsuario">
+          <label for="usuario">Usuario</label>
+        </div>
+        <div class="form-floating">
+          <input type="text" class="form-control" id="txtNombre" placeholder="nombre" name="txtNombre">
+          <label for="nombre">Nombre</label>
+        </div>
+        <div class="form-floating">
+          <input type="text" class="form-control" id="txtApellido" placeholder="apellidos" name="txtApellido">
+          <label for="apellido">Apellidos</label>
+        </div>
+        <div class="form-floating">
+          <input type="password" class="form-control" id="txtContrasenia" placeholder="contrasenia" name="txtContrasenia">
+          <label for="contrasenia">Contraseña</label>
+        </div>
+         
+        <div class="mb-3">
+          <input type="submit" value="Registrar usuario" class="btn btn-login">
+          <a href="{{url_for('iniciar_seccion')}}" class="btn btn-login">Iniciar seccion</a>
+        </div>
+      </form>
+    </div>
+</body>
+{% endblock %}

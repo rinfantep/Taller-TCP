@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{%block title%}Editar Equipo{%endblock%}
+{%block body%}
+   
+
+{% for equipos in equipos %}
+
+<br>
+<form method="post" action="/update_equipos" enctype="multipart/form-data">
+  <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
+    <div class="card">
+        <div class="card-header">
+            <h4 class="card-title">Editar datos de cliente</h4>
+        </div>
+        <div class="card-body">
+            
+            <p class="card-text">
+                
+                <div class="form-group">
+                  <input type="hidden" name="txtID" id="txtID" class="form-control" value="{{equipos[0]}}">
+                </div>
+                
+                <div class="form-group">
+                    <label for="txtOrden" class="form-label">No. de Orden:</label>
+                    <input type="text" name="txtOrden" id="txtOrden" class="form-control" placeholder="No. de Orden" value="{{equipos[1]}}">
+                  </div>
+                
+                  <div class="form-group">
+                    <label for="txtImei" class="form-label">IMEI</label>
+                    <input type="text" name="txtImei" id="txtImei" class="form-control" placeholder="IMEI" value="{{equipos[2]}}">                  
+                  </div>
+                
+                  <div class="form-group">
+                    <label for="txtMarca" class="form-label">Marca:</label>
+                    <input type="text" name="txtMarca" id="txtMarca" class="form-control" placeholder="Marca" value="{{equipos[3]}}"> 
+                  </div>
+
+                  <div class="form-group">
+                    <label for="txtModelo" class="form-label">Modelo:</label>
+                    <input type="text" name="txtModelo" id="txtModelo" class="form-control" placeholder="Modelo" value="{{equipos[4]}}"> 
+                  </div>
+
+                  <div class="form-group">
+                    <label for="txtTipo" class="form-label">Tipo:</label>
+                    <input type="text" name="txtTipo" id="txtTipo" class="form-control" placeholder="Tipo de equipo" value="{{equipos[5]}}"> 
+                  </div>
+
+                  <div class="form-group">
+                    <label for="txtDefectado" class="form-label">Defectado:</label>
+                    <input type="text" name="txtDefectado" id="txtDefectado" class="form-control" placeholder="Defectado" value="{{equipos[6]}}"> 
+                  </div>
+                
+                <div class="form-group">
+                    <input type="submit" value="Actualizar" class="btn btn-success">
+                    <a href="{{url_for('index')}}" class="btn btn-primary">Regresar</a>
+                </div>
+            </p>
+        </div>
+    </div>
+    
+    
+</form>
+
+{% endfor %}
+{% endblock %}

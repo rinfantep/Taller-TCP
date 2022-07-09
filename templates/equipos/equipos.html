@@ -1,0 +1,42 @@
+   {% extends 'base.html' %}
+   {%block title%}Equipos{%endblock%}
+   {%block body%}
+   <body class="equipo-body">
+      <br>
+      <div class="card-header card">
+        <h2 class="card-title">Equipos Registrados</h2>
+      </div>
+      <br>
+      <table class="table table-light" >
+        <thead class="thead-light">
+          <tr>
+            <th>No.</th>
+            <th>No. Orden</th>
+            <th>IMEI</th>
+            <th>Marca</th>
+            <th>Modelo</th>
+            <th>Tipo</th>
+            <th>Defectado</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for equipos in equipos %} 
+          <tr>
+            <td>{{equipos[0] }}</td>
+            <td>{{equipos[1] }}</td>
+            <td>{{equipos[2] }}</td>
+            <td>{{equipos[3] }}</td>
+            <td>{{equipos[4] }}</td>
+            <td>{{equipos[5] }}</td>
+            <td>{{equipos[6] }}</td>
+            <td>
+              <a href="/edit_equipos/{{equipos[0]}}" class="btn btn-warning">Editar</a> | 
+              <a onclick="return confirm('Desea borrar el cliente?')" href="/destroy_equipo/{{equipos[0]}}" class="btn btn-danger">Eliminar</a>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+   </body>
+{% endblock %}

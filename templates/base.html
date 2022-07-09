@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>{%block title%}{%endblock%}</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/bootstrap.css')}}">     
+    <link rel="stylesheet" href="{{url_for('static',filename='css/bootstrap.min.css')}}">  
+    <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">   
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-sm navbar-light bg-light">
+        <div class="container">
+          <a class="navbar-brand" href="{{url_for('index')}}">Gestion de clientes</a>
+          <div class="collapse navbar-collapse" id="collapsibleNavId">
+            <ul class="navbar-nav me-auto mt-2 mt-lg-0">
+              <li class="nav-item active">
+                <a class="nav-link" href=" {{url_for('index')}} ">Clientes</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href=" {{url_for('equipos')}} ">Equipos</a> 
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href=" {{url_for('cerrar_seccion')}} ">Cerrar Sección</a>
+              </li>
+            </ul>  
+            {%block buscar%}
+            {% endblock %}    
+          </div>
+        </div>
+      </nav>  
+    {%block body%}
+    {% endblock %}
+</body>
+</html>

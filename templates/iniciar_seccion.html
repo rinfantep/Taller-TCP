@@ -1,0 +1,37 @@
+{% extends "base_login.html" %}
+{% block title %}Iniciar Seccion{% endblock title %}
+ {% block body %}
+ {% with messages=get_flashed_messages()%}
+  {%if messages%}
+    <div class="alert alert-danger" role="alert">
+      {%for message in messages%}
+        {{message}}
+      {%endfor%}
+    </div>
+  {%endif%}
+  {%endwith%}
+    <body class="body-login text-center">
+      <div class="form-signin">
+        <form id="loginForm" action="/iniciar_seccion" method="POST">
+          <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
+
+          <h1 class="h3 mb-3 fw-normal usu">Introduzca sus Datos</h1>
+      
+          <div class="form-floating">
+            <input type="text" class="form-control" id="txtUsuario" placeholder="usuario" name="txtUsuario">
+            <label for="txtUsuario">Usuario</label>
+          </div>
+
+          <div class="form-floating">
+            <input type="password" class="form-control" id="txtContrasenia" placeholder="Password" name="txtContrasenia">
+            <label for="txtContrasenia">Contraseña</label>
+          </div>
+      
+          <div class="mb-3 botones-login">
+            <input type="submit" value="Iniciar Seccion" class="btn btn-login">
+            <a href="{{url_for('registro_usu')}}" class="btn btn-login">Registrar usuario</a>
+          </div>
+        </form>
+      </div>
+    </body>
+ {% endblock body %}

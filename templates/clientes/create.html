@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{%block title%}Insertar Cliente{%endblock%}
+{%block body%}
+{% with messages=get_flashed_messages()%}
+{%if messages%}
+  <div class="alert alert-danger" role="alert">
+    {%for message in messages%}
+      {{message}}
+    {%endfor%}
+  </div>
+{%endif%}
+{%endwith%}
+<br>
+<form method="post" action="/store" enctype="multipart/form-data"> 
+  <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
+    <div class="card">
+        <div class="card-header">
+          <h4 class="card-title">Ingresar cliente</h4>
+        </div>
+        <div class="card-body"> 
+            <p class="card-text">
+                <div class="mb-3">
+                  <label for="txtNombre" class="form-label">Nombre:</label>
+                  <input type="text" name="txtNombre" id="txtNombre" class="form-control" placeholder="Nombre" aria-describedby="helpId">
+                </div>
+                <div class="mb-3">
+                  <label for="txtCI">CI</label>
+                  <input type="text" name="txtCI" id="txtCI" class="form-control" placeholder="CI" aria-describedby="helpId">                  
+                </div>
+                <div class="mb-3">
+                  <label for="txtTelefono" class="form-label">Telefono:</label>
+                  <input type="text" name="txtTelefono" id="txtTelefono" class="form-control" placeholder="Telefono" aria-describedby="helpId"> 
+                </div>
+              <div class="mb-3">
+                <input type="submit" value="Agregar" class="btn btn-success">
+                <a href="{{url_for('index')}}" class="btn btn-primary">Regresar</a>
+              </div>
+            </p>
+        </div>
+    </div> 
+</form>
+{% endblock %}

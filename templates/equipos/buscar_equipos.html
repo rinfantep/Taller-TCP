@@ -1,0 +1,40 @@
+   {% extends 'base.html' %}
+   {%block title%}Buscar Equipos{%endblock%}
+   {%block body%}
+    <br>
+    <div class="card-header card">
+      <h2 class="card-title">Resultado de Busqueda</h2>
+    </div>
+    <br>
+    <table class="table table-light" >
+      <thead class="thead-light">
+        <tr>
+          <th>No.</th>
+          <th>No. Orden</th>
+          <th>IMEI</th>
+          <th>Marca</th>
+          <th>Modelo</th>
+          <th>Tipo</th>
+          <th>Defectado</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for buscar_equipos in buscar_equipos %} 
+        <tr>
+          <td>{{buscar_equipos[0] }}</td>
+          <td>{{buscar_equipos[1] }}</td>
+          <td>{{buscar_equipos[2] }}</td>
+          <td>{{buscar_equipos[3] }}</td>
+          <td>{{buscar_equipos[4] }}</td>
+          <td>{{buscar_equipos[5] }}</td>
+          <td>{{buscar_equipos[6] }}</td>
+          <td>
+            <a href="/edit_equipos/{{buscar_equipos[0]}}" class="btn btn-warning">Editar</a> | 
+            <a onclick="return confirm('Desea borrar el cliente?')" href="/destroy_equipo/{{buscar_equipos[0]}}" class="btn btn-danger">Eliminar</a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% endblock %}

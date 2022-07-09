@@ -1,0 +1,45 @@
+
+{% extends 'base.html' %}
+{%block title%}Insertar Cliente{%endblock%}
+{%block buscar%}    
+        <form class="d-flex my-2 my-lg-0">
+          <input class="form-control me-sm-2" type="text" placeholder="Buscar clientes por nombre">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+        </form>
+{%endblock%} 
+{%block body%} 
+<body class="body-index">
+  
+</body>
+    <br/>
+    <a href="{{url_for('create')}}" class="btn btn-success btn_ingresar_cliente">Ingresar nuevo cliente</a>
+    <br>
+    <br>
+    <table class="table table-light tabla_clientes" >
+      <thead class="thead-light">
+        <tr>
+          <th>No. Orden</th>
+          <th>Nombre y Apellidos</th>
+          <th>CI</th>
+          <th>Telefono</th>
+          <th>Equipos</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for cliente in cliente %}
+        <tr>
+          <td>{{cliente[0] }}</td>
+          <td>{{cliente[1] }}</td>
+          <td>{{cliente[2] }}</td>
+          <td>{{cliente[3] }}</td>
+          <td><a href="{{url_for('create_equipos')}}" class="btn btn-success">Anadir</a> | <a href="{{url_for('buscar_equipos')}}" class="btn btn-dark">Buscar</a></td>
+          <td>
+            <a href="/edit/{{cliente[0]}}" class="btn btn-warning">Editar</a> | 
+            <a onclick="return confirm('Desea borrar el cliente?')" href="/destroy/{{cliente[0]}}" class="btn btn-danger">Eliminar</a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+{% endblock %}

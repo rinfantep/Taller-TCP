@@ -44,15 +44,7 @@
 .botones-login{
     margin-top: 10px;
 }
-.body-index{
-    background-image: url("../img/login.webp");
-    background-size: cover;
-}
 .tabla_clientes{
     padding: 120px;
     
-}
-.equipo-body{
-    background-image: url("../img/login2.webp");
-    background-size: cover;
 }

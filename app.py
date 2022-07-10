@@ -14,8 +14,8 @@ csrf=CSRFProtect(app)
 
 mysql=MySQL(app)
 app.config['MYSQL_DATABASE_HOST']='localhost'
-app.config['MYSQL_DATABASE_USER']='root'
-app.config['MYSQL_DATABASE_PASSWORD']=''
+app.config['MYSQL_DATABASE_USER']='home'
+app.config['MYSQL_DATABASE_PASSWORD']='password'
 app.config['MYSQL_DATABASE_DB']='tcp'
 mysql.init_app(app)
 
